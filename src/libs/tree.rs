@@ -104,11 +104,7 @@ pub fn add(value: u32) {
 }
 
 #[wasm_bindgen]
-pub fn show() {
+pub fn show() -> Vec<u32> {
     let tree = STATES.lock().unwrap();
-    let vec  = tree.show();
-
-    for x in &vec {
-        log(&x.to_string());
-    }
+    tree.show()
 }
