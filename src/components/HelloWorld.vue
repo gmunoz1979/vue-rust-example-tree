@@ -35,6 +35,28 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  beforeCreate() {
+    import('../../pkg').then(wasm => {
+      wasm.add(10);
+      wasm.add(1);
+      wasm.add(5);
+      wasm.add(3);
+      wasm.add(2);
+      wasm.add(8);
+      wasm.add(4);
+      wasm.add(9);
+      wasm.add(6);
+      wasm.add(7);
+
+      wasm.show();
+      console.log('');
+      wasm.add(11);
+      wasm.show();
+    });
+  },
+  mounted() {
+    // console.log(this.calculate(1, 2));
   }
 }
 </script>
